@@ -1,6 +1,6 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Dijkstars {
     Graph g;
@@ -9,6 +9,9 @@ public class Dijkstars {
     //ArrayList<Node> visited;
 
     public Dijkstars(Graph g){
+        this.nodes = new HashMap<>();
+        this.unvisited = new ArrayList<>();
+
         this.g = g;
 
         for(Node n : g.nodes){
@@ -28,11 +31,11 @@ public class Dijkstars {
 
         while (unvisited.size() > 0){
             //Get next node with lowest value
-            int val = Integer.MIN_VALUE;
+            int val = Integer.MAX_VALUE;
             Node current = start;
 
             for (Node n : unvisited){
-                if (val > nodes.get(n).value){
+                if (val < nodes.get(n).value){
                     val = nodes.get(n).value;
                     current = n;
                 }
@@ -41,6 +44,24 @@ public class Dijkstars {
             //Remove node from Unvisited
             unvisited.remove(current);
 
+
+            //Calculate new Values
+            for (Edge e : current.getEdges()){
+                int weight = e.getWeight();
+                Node[] nodes = e.getNodes();
+                Node dest = null;
+                if (nodes[0].equals(current)){
+                    dest = nodes[1];
+                } else if (nodes[1].equals(current)){
+                    dest = nodes[0];
+                }
+                int value = weight + this.nodes.get(current).value;
+                if (value < this.nodes.get(dest).value){
+                    this.nodes.remove(dest);
+                    ArrayList<Node> newPath = new ArrayList<Node>(this.nodes.get(current).path);
+                    this.nodes.put(dest, new Value(value, this.nodes.get(current).path));
+                }
+            }
 
         }
 
@@ -52,9 +73,9 @@ public class Dijkstars {
 
 class Value{
     int value;
-    Node[] path;
+    ArrayList<Node> path;
 
-    Value(int value, Node[] path){
+    Value(int value, ArrayList<Node> path){
         this.value = value;
         this.path = path;
     }

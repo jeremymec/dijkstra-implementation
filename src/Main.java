@@ -11,6 +11,8 @@ public class Main {
     public Main(){
         create();
         print();
+        Dijkstars d = new Dijkstars(g);
+        d.find(g.nodes.get(0), g.nodes.get(1));
     }
 
     public void create(){
