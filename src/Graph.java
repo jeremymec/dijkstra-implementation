@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Graph {
-    ArrayList<Node> nodes;
-    ArrayList<Edge> edges;
+    public ArrayList<Node> nodes;
+    public ArrayList<Edge> edges;
 
 
     public Graph(){
@@ -10,11 +10,11 @@ public class Graph {
         edges = new ArrayList<>();
     }
 
-    public void add_node(Node n){
+    public void addNode(Node n){
         this.nodes.add(n);
     }
 
-    public void add_edge(Edge e){
+    public void addEdge(Edge e){
         this.edges.add(e);
     }
 
