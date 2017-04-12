@@ -81,9 +81,13 @@ class Value{
     }
 
     public String toString(){
-        String nodes;
+        String nodes = "";
         for (Node n : path){
-            
+            nodes += " ";
+            nodes += n.getValue();
+            nodes += " ---> ";
         }
+
+        return nodes;
     }
 }

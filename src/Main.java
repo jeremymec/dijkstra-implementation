@@ -13,7 +13,7 @@ public class Main {
         print();
         Dijkstars d = new Dijkstars(g);
         Value shortest = d.find(g.nodes.get(0), g.nodes.get(1));
-
+        System.out.println("Shortest path is " + shortest + g.nodes.get(1).getValue() + " with value of " + shortest.value);
     }
 
     public void create(){
