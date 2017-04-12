@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/dikstar-implemtation.iml" filepath="$PROJECT_DIR$/dikstar-implemtation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dijkstar-implemtation.iml" filepath="$PROJECT_DIR$/dijkstar-implemtation.iml" />
     </modules>
   </component>
 </project>
