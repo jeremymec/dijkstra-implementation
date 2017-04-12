@@ -23,19 +23,19 @@ public class Dijkstars {
     public Node[] find(Node start, Node end){
 
         //Set first node
-        unvisited.remove(start);
+        //unvisited.remove(start);
         //visited.add(start);
-        nodes.remove(start);
+        //nodes.remove(start);
         nodes.put(start, new Value(0, null));
 
 
         while (unvisited.size() > 0){
             //Get next node with lowest value
             int val = Integer.MAX_VALUE;
-            Node current = start;
+            Node current = null;
 
             for (Node n : unvisited){
-                if (val < nodes.get(n).value){
+                if (nodes.get(n).value < val){
                     val = nodes.get(n).value;
                     current = n;
                 }
@@ -50,11 +50,13 @@ public class Dijkstars {
                 int weight = e.getWeight();
                 Node[] nodes = e.getNodes();
                 Node dest = null;
+
                 if (nodes[0].equals(current)){
                     dest = nodes[1];
                 } else if (nodes[1].equals(current)){
                     dest = nodes[0];
                 }
+
                 int value = weight + this.nodes.get(current).value;
                 if (value < this.nodes.get(dest).value){
                     this.nodes.remove(dest);
