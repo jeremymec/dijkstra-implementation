@@ -20,7 +20,7 @@ public class Dijkstars {
         }
     }
 
-    public Node[] find(Node start, Node end){
+    public Value find(Node start, Node end){
 
         //Set first node
         //unvisited.remove(start);
@@ -65,12 +65,9 @@ public class Dijkstars {
                     this.nodes.put(dest, new Value(value, newPath));
                 }
             }
-
         }
 
-
-
-        return null;
+        return nodes.get(end);
     }
 }
 
@@ -81,5 +78,12 @@ class Value{
     Value(int value, ArrayList<Node> path){
         this.value = value;
         this.path = path;
+    }
+
+    public String toString(){
+        String nodes;
+        for (Node n : path){
+            
+        }
     }
 }

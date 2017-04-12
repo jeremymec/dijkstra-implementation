@@ -12,7 +12,8 @@ public class Main {
         create();
         print();
         Dijkstars d = new Dijkstars(g);
-        d.find(g.nodes.get(0), g.nodes.get(1));
+        Value shortest = d.find(g.nodes.get(0), g.nodes.get(1));
+
     }
 
     public void create(){
@@ -28,13 +29,13 @@ public class Main {
         g.addNode(six);
         g.addNode(ten);
 
-        Edge e = g.addEdge(new Edge(two, five, 1));
+        Edge e = g.addEdge(new Edge(two, five, 3));
         two.addEdge(e);
         five.addEdge(e);
         e = g.addEdge(new Edge(five, six, 1));
         five.addEdge(e);
         six.addEdge(e);
-        e = g.addEdge(new Edge(two, ten, 1));
+        e = g.addEdge(new Edge(two, ten, 2));
         two.addEdge(e);
         ten.addEdge(e);
     }
