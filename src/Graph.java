@@ -14,8 +14,9 @@ public class Graph {
         this.nodes.add(n);
     }
 
-    public void addEdge(Edge e){
+    public Edge addEdge(Edge e){
         this.edges.add(e);
+        return e;
     }
 
 }

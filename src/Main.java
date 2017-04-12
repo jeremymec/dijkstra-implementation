@@ -28,9 +28,15 @@ public class Main {
         g.addNode(six);
         g.addNode(ten);
 
-        g.addEdge(new Edge(two, five, 1));
-        g.addEdge(new Edge(five, six, 1));
-        g.addEdge(new Edge(two, ten, 1));
+        Edge e = g.addEdge(new Edge(two, five, 1));
+        two.addEdge(e);
+        five.addEdge(e);
+        e = g.addEdge(new Edge(five, six, 1));
+        five.addEdge(e);
+        six.addEdge(e);
+        e = g.addEdge(new Edge(two, ten, 1));
+        two.addEdge(e);
+        ten.addEdge(e);
     }
 
     public void print(){

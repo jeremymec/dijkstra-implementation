@@ -15,7 +15,7 @@ public class Dijkstars {
         this.g = g;
 
         for(Node n : g.nodes){
-            nodes.put(n, new Value(Integer.MAX_VALUE, null));
+            nodes.put(n, new Value(Integer.MAX_VALUE, new ArrayList<Node>()));
             unvisited.add(n);
         }
     }
@@ -26,7 +26,7 @@ public class Dijkstars {
         //unvisited.remove(start);
         //visited.add(start);
         //nodes.remove(start);
-        nodes.put(start, new Value(0, null));
+        nodes.put(start, new Value(0, new ArrayList<Node>()));
 
 
         while (unvisited.size() > 0){
@@ -61,7 +61,8 @@ public class Dijkstars {
                 if (value < this.nodes.get(dest).value){
                     this.nodes.remove(dest);
                     ArrayList<Node> newPath = new ArrayList<Node>(this.nodes.get(current).path);
-                    this.nodes.put(dest, new Value(value, this.nodes.get(current).path));
+                    newPath.add(current);
+                    this.nodes.put(dest, new Value(value, newPath));
                 }
             }
 
